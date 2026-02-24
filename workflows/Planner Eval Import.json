@@ -1,0 +1,404 @@
+{
+  "name": "Planner Eval Import",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -384,
+        256
+      ],
+      "id": "9d709dab-e6ef-4678-9945-c4be99273fce",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "  {\"dataset\": [\n    {\n      \"id\": \"case_001\",\n      \"request\": \"Найди клиента ООО Ромашка по ИНН 7707083893\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\"\n      ],\n      \"expected_agents_count\": 1\n    },\n    {\n      \"id\": \"case_002\",\n      \"request\": \"Оцени финансовое состояние клиента по ИНН 7707083893\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"financial-analyst-ai-agent\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_003\",\n      \"request\": \"Дай оценку риска и долговой нагрузки компании ИНН 7707083893\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"financial-analyst-ai-agent\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_004\",\n      \"request\": \"Кто КМ у клиента ООО Титан и в каком он холдинге?\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client-profile-composer\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_005\",\n      \"request\": \"Сформируй справку по клиенту: отрасль, ОКВЭД, КМ, история сотрудничества\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client-profile-composer\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_006\",\n      \"request\": \"Сделай мини-карточку клиента ООО Вектор\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_card\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_007\",\n      \"request\": \"Дай расширенную карточку клиента и короткий фин-анализ\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_card\",\n        \"financial-analyst-ai-agent\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_008\",\n      \"request\": \"Покажи активные продукты и статусы клиента ИНН 7707083893\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_questions\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_009\",\n      \"request\": \"Дай историю взаимодействий и уточни ответственного КМ\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_questions\",\n        \"client-profile-composer\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_010\",\n      \"request\": \"Предложи персональные продукты для клиента ООО Прайм\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_recommendations\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_011\",\n      \"request\": \"Кто КМ у клиента и какие продукты лучше предложить дальше?\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client-profile-composer\",\n        \"client_recommendations\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_012\",\n      \"request\": \"Какие модули ЕФС доступны для работы с клиентскими заявками?\",\n      \"expected_agent_sequence\": [\n        \"efs_questions\"\n      ],\n      \"expected_agents_count\": 1\n    },\n    {\n      \"id\": \"case_013\",\n      \"request\": \"Как в ЕФС посмотреть лимиты клиента по ИНН 7707083893?\",\n      \"expected_agent_sequence\": [\n        \"efs_questions\",\n        \"client-context-search-agent-service\",\n        \"client_questions\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_014\",\n      \"request\": \"Сделай протокол встречи по стенограмме и выдели решения\",\n      \"expected_agent_sequence\": [\n        \"giga_protocol\"\n      ],\n      \"expected_agents_count\": 1\n    },\n    {\n      \"id\": \"case_015\",\n      \"request\": \"Сформируй протокол встречи и добавь факты по активным продуктам клиента\",\n      \"expected_agent_sequence\": [\n        \"giga_protocol\",\n        \"client-context-search-agent-service\",\n        \"client_questions\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_016\",\n      \"request\": \"Подготовь меня к встрече с клиентом ООО Сфера на завтра\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"Подготовка к встрече с клиентом\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_017\",\n      \"request\": \"Подготовь брифинг к встрече и добавь блок по текущим продуктам клиента\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client_questions\",\n        \"Подготовка к встрече с клиентом\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_018\",\n      \"request\": \"Построй стратегическую дорожную карту развития клиента на 12 месяцев\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"strategic_plan_generation\"\n      ],\n      \"expected_agents_count\": 2\n    },\n    {\n      \"id\": \"case_019\",\n      \"request\": \"Сделай стратегический план развития клиента с учетом финансовых рисков\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"financial-analyst-ai-agent\",\n        \"strategic_plan_generation\"\n      ],\n      \"expected_agents_count\": 3\n    },\n    {\n      \"id\": \"case_020\",\n      \"request\": \"Кто КМ, какие активные продукты, что предложить и какой стратегический план на год?\",\n      \"expected_agent_sequence\": [\n        \"client-context-search-agent-service\",\n        \"client-profile-composer\",\n        \"client_questions\",\n        \"client_recommendations\",\n        \"strategic_plan_generation\"\n      ],\n      \"expected_agents_count\": 5\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -208,
+        256
+      ],
+      "id": "5a759fdf-9a8f-4d2c-a8dd-8a7305dafb02",
+      "name": "Dataset Inline"
+    },
+    {
+      "parameters": {
+        "jsCode": "const arr = Array.isArray($json.dataset) ? $json.dataset : [];\nreturn arr.map((row) => ({ json: row }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        256
+      ],
+      "id": "9255eec4-e391-4407-8626-956a60c90959",
+      "name": "Dataset To Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        144,
+        256
+      ],
+      "id": "f12101da-0917-44bd-a7a8-e113ac54799c",
+      "name": "Split In Batches"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6f88b638-088e-4429-98e2-e1ad894dad47",
+              "name": "request",
+              "value": "={{ $json.request }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        304,
+        272
+      ],
+      "id": "f3dc86ba-b0e3-4222-892a-21873129c367",
+      "name": "Set Eval Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.request }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "<system>\nТы — модуль создания плана для исполнения запроса пользователя в банковской системе.\nТвоя задача — составить план вызовов внешних агентов для ответа на запрос пользователя.\nРезультат — это ровно один JSON строго по JSON-схеме PlannerResponse.\n</system>\n\n<task>\nФормирование плана:\n    - Сделай последовательный логический план из 1–5 шагов\n    - Каждый шаг — это конкретное действие, которое выполняет внешний агент\n    - Каждый шаг выполняет наиболее релевантный для конкретного действия внешний агент\n- Реестр доступных внешних агентов:\n    - Внешние агенты перечислены ниже между тегами <remote_agents>\n    - Описание внешнего агента структурированно в виде разметки XML тегами <remote_agent>, <role>, <activation_criteria>, <input>, <output>\n    - При выборе ориентируйся на роль и возможности внешнего агента\n- Последовательность плана:\n    - Обязательно учитывай порядок вызова внешних агентов\n    - Зависимое исполнение — выходные данные одного агента формируют входные данные другому агенту\n    - Независимое исполнение — агенты не зависят друг от друга\n</task>\n\n<remote_agents>\n<remote_agent>\n<name>client-context-search-agent-service</name>\n<role>Идентификация клиента: поиск, выбор одного клиента, определение контекста клиента</role>\n<activation_criteria>Запрос содержит ИНН/название/идентификатор клиента или нужен выбор клиента</activation_criteria>\n<input>Запрос пользователя, ИНН, название, ucpId, контекст</input>\n<output>Идентифицированный клиент или список клиентов для выбора</output>\n<requires_client>false</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>financial-analyst-ai-agent</name>\n<role>Финансовый анализ клиента: риски, долговая нагрузка, cashflow</role>\n<activation_criteria>Нужен финансовый анализ/оценка рисков по конкретному клиенту</activation_criteria>\n<input>Идентификатор клиента, контекст задачи</input>\n<output>Финансовые выводы и оценка рисков</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>client-profile-composer</name>\n<role>Справка по клиенту: КМ, отрасль, холдинг, профиль</role>\n<activation_criteria>Нужна клиентская справка, профиль или оргконтекст клиента</activation_criteria>\n<input>Идентификатор клиента</input>\n<output>Профиль клиента и справочные сведения</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>client_card</name>\n<role>Мини/расширенная карточка клиента</role>\n<activation_criteria>Нужно получить карточку клиента</activation_criteria>\n<input>Идентификатор клиента</input>\n<output>Структурированная карточка клиента</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>client_questions</name>\n<role>Операционные данные по клиенту: продукты, лимиты, история взаимодействий</role>\n<activation_criteria>Нужны данные по действующим продуктам/лимитам/истории</activation_criteria>\n<input>Идентификатор клиента, уточняющий вопрос</input>\n<output>Ответ по продуктам, лимитам, истории</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>client_recommendations</name>\n<role>Рекомендации продуктов и next best action</role>\n<activation_criteria>Нужны персональные рекомендации для клиента</activation_criteria>\n<input>Идентификатор клиента, бизнес-контекст</input>\n<output>Рекомендованные действия/продукты</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>efs_questions</name>\n<role>Справка по ЕФС и сервисам платформы</role>\n<activation_criteria>Вопросы по ЕФС, доступам, инструментам, навигации</activation_criteria>\n<input>Вопрос пользователя</input>\n<output>Справочный ответ по ЕФС</output>\n<requires_client>false</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>giga_protocol</name>\n<role>Создание протоколов встреч и структурирование итогов</role>\n<activation_criteria>Нужно оформить протокол/саммари встречи</activation_criteria>\n<input>Материалы встречи, стенограмма, заметки</input>\n<output>Протокол встречи</output>\n<requires_client>false</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>Подготовка к встрече с клиентом</name>\n<role>Подготовка pre-meeting брифинга к встрече с клиентом</role>\n<activation_criteria>Нужна подготовка к встрече и рекомендации</activation_criteria>\n<input>Идентификатор клиента, цель встречи</input>\n<output>Структурированный брифинг к встрече</output>\n<prerequisites>Требуется идентифицированный клиент</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n\n<remote_agent>\n<name>strategic_plan_generation</name>\n<role>Формирование стратегической дорожной карты развития клиента</role>\n<activation_criteria>Нужен долгосрочный план развития/инициатив по клиенту</activation_criteria>\n<input>Идентификатор клиента, цель планирования</input>\n<output>Стратегический план/roadmap</output>\n<prerequisites>Требуется идентифицированный клиент и цель планирования</prerequisites>\n<requires_client>true</requires_client>\n</remote_agent>\n</remote_agents>\n\n<rules>\nСтрого соблюдай правила:\n1. В одном шаге только один внешний агент.\n1.1. Обязательное правило подготовки:\n    - Если в описании агента есть тег <prerequisites> или <requires_client> — обязательно выполни эти требования перед вызовом внешнего агента\n    - Если несколько агентов релевантны, выбирай того, где теги <role> и <activation_criteria> точнее соответствуют запросу\n\n2. Запрещённые результаты:\n{\"sequential_plan\": []}\n\n3. Запрещено:\n- Описание внутренних рассуждений\n- Описывать логику принятия решений\n- Описывать работу LLM или системные детали\n- Любой текст вне JSON\n</rules>\n\n<response_format>\n{\n  \"sequential_plan\": [\n    {\n      \"step\": \"string\",\n      \"agent_name\": \"string\"\n    }\n  ]\n}\n</response_format>"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        672,
+        272
+      ],
+      "id": "ba1ea40a-dfe3-4065-898a-de5568c27ba6",
+      "name": "AI Agent",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-5",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        624,
+        480
+      ],
+      "id": "fe3cefd0-761b-4736-afc9-303e41fb826d",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "mbJfPb7Am9m4krMT",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"required\": [\"sequential_plan\"],\n  \"properties\": {\n    \"sequential_plan\": {\n      \"type\": \"array\",\n      \"minItems\": 1,\n      \"maxItems\": 5,\n      \"items\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\"step\", \"agent_name\"],\n        \"properties\": {\n          \"step\": {\n            \"type\": \"string\",\n            \"minLength\": 1\n          },\n          \"agent_name\": {\n            \"type\": \"string\",\n            \"minLength\": 1\n          }\n        }\n      }\n    }\n  }\n}\n",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        736,
+        480
+      ],
+      "id": "2d8e0e6e-8c06-404c-b2de-970a04c77e1d",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "jsCode": "const src = $json;\n\nlet raw = src.output ?? src.response ?? src.result ?? src.text ?? src;\nif (typeof raw === 'string') {\n  try { raw = JSON.parse(raw); } catch {}\n}\nif (raw && typeof raw === 'object' && raw.output) raw = raw.output;\n\nconst plan = Array.isArray(raw?.sequential_plan) ? raw.sequential_plan : [];\nconst predicted = plan\n  .map((s) => (typeof s?.agent_name === 'string' ? s.agent_name.trim() : ''))\n  .filter(Boolean);\n\nconst expected = Array.isArray(src.expected_agent_sequence) ? src.expected_agent_sequence : [];\nconst expectedCount = Number(src.expected_agents_count ?? expected.length);\n\nreturn {\n  json: {\n    ...src,\n    predicted_agent_sequence: predicted,\n    predicted_agents_count: predicted.length,\n    count_match: predicted.length === expectedCount,\n    sequence_match: JSON.stringify(predicted) === JSON.stringify(expected),\n    raw_planner_output: raw\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        736
+      ],
+      "id": "302973da-98bf-4fbc-8162-cf63ef9545bd",
+      "name": "Normalize Planner Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all().map((i) => i.json);\nconst total = rows.length;\n\nconst passedCount = rows.filter((r) => r.count_match).length;\nconst passedSeq = rows.filter((r) => r.sequence_match).length;\n\nconst failed = rows\n  .filter((r) => !r.sequence_match || !r.count_match)\n  .map((r) => ({\n    id: r.id,\n    request: r.request,\n    expected_agent_sequence: r.expected_agent_sequence,\n    expected_agents_count: r.expected_agents_count,\n    predicted_agent_sequence: r.predicted_agent_sequence,\n    predicted_agents_count: r.predicted_agents_count,\n    count_match: r.count_match,\n    sequence_match: r.sequence_match\n  }));\n\nreturn [{\n  json: {\n    total,\n    exact_sequence_accuracy: total ? passedSeq / total : 0,\n    count_accuracy: total ? passedCount / total : 0,\n    passed_sequence: passedSeq,\n    passed_count: passedCount,\n    failed_cases: failed,\n    results: rows\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        80
+      ],
+      "id": "73d37a4f-ac0f-4864-b955-bc961e751ecc",
+      "name": "Aggregate Metrics"
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json;\nconst stamp = new Date().toISOString().replace(/[:.]/g, '-');\nconst fileName = `planner_eval_${stamp}.json`;\nconst content = JSON.stringify(payload, null, 2);\n\nreturn [{\n  json: payload,\n  binary: {\n    data: {\n      data: Buffer.from(content, 'utf8').toString('base64'),\n      mimeType: 'application/json',\n      fileName\n    }\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        80
+      ],
+      "id": "4e185b6e-9c16-4f03-8f86-0113b1e324d5",
+      "name": "Build Result Binary"
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "5464460059",
+        "binaryData": true,
+        "additionalFields": {
+          "caption": "Метрики оркестрации"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        704,
+        80
+      ],
+      "id": "125e4fb1-ebde-4c37-9af3-ee79ab202d5b",
+      "name": "Send a document",
+      "webhookId": "27addb55-7604-4547-a88c-1915981ebbed",
+      "credentials": {
+        "telegramApi": {
+          "id": "P5MahX3D110BBw3S",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1024,
+        736
+      ],
+      "id": "3f19416d-5a08-4bad-94f3-5a67c5c11452",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-5",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        736,
+        640
+      ],
+      "id": "3ad18967-4946-4a92-a255-e263b00a646c",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "mbJfPb7Am9m4krMT",
+          "name": "OpenRouter account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Dataset Inline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dataset Inline": {
+      "main": [
+        [
+          {
+            "node": "Dataset To Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dataset To Items": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Eval Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Eval Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Normalize Planner Result": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Metrics": {
+      "main": [
+        [
+          {
+            "node": "Build Result Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Result Binary": {
+      "main": [
+        [
+          {
+            "node": "Send a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Normalize Planner Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "86e368b0-143b-4ccc-a6c0-bc8cac96d18b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fcbbcf7cd1546aeb346aaf5310052bb26aea6fffe99ee170a4267b3feeea596f"
+  },
+  "id": "hjETd77FJ2_tW0gISvl23",
+  "tags": []
+}

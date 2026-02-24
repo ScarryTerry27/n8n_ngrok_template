@@ -11,6 +11,7 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
       - ./start-n8n.sh:/start-n8n.sh:ro
+      - ./workflows:/import:ro
     entrypoint: ["sh", "/start-n8n.sh"]
     restart: unless-stopped
     depends_on:
